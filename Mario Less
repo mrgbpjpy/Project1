@@ -1,0 +1,35 @@
+// Include necessary header files
+#include <stdio.h>
+#include <cs50.h>
+
+int main(void)
+{
+// Declare variable for height of the pyramid
+int luigi_height;
+// Prompt user for height of the pyramid and reprompt until it's a positive integer between 1 and 8
+do
+{
+    luigi_height = get_int("Height: ");
+}
+while (luigi_height < 1 || luigi_height > 8);
+
+// Loop over each row of the pyramid
+for (int luigi_row = 0; luigi_row < luigi_height; luigi_row++)
+{
+    // Loop over each space to print for each row
+    for (int space = 0; space < luigi_height - luigi_row - 1; space++)
+    {
+        printf(" ");
+    }
+
+    // Loop over each hash to print for each row
+    for (int hash = 0; hash < luigi_row + 1; hash++)
+    {
+        printf("#");
+    }
+
+    // Move to next line after each row is printed
+    printf("\n");
+}
+// Indicate successful completion of the program
+return 0;
